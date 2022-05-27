@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="always">
+    <meta name="robots" content="noindex,nofollow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <meta property="og:title" content="나의 타이밍 감각 점수는? - 타이밍 감각 테스트">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/106331846">
+    <meta property="og:description" content="당신의 타이밍 감각은 과연 몇점일까요? 지금 바로 테스트하세요.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="나의 타이밍 감각 점수는? - 타이밍 감각 테스트">
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/106331846">
+    <meta name="twitter:description" content="당신의 타이밍 감각은 과연 몇점일까요? 지금 바로 테스트하세요.">
+    
+    <title>나의 타이밍 감각 점수는? - 타이밍 감각 테스트</title>
+    <meta name="description" content="당신의 타이밍 감각은 과연 몇점일까요? 지금 바로 테스트하세요.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+      Kakao.init('9a9de4143ab2a6bdc9b03bed0d537ae7');
+      Kakao.isInitialized();
+    </script>
+    <script>
+      window.send = (event, form) => {
+        event.preventDefault();
+        const data = {
+          objectType: 'feed',
+          content: {
+            imageUrl: 'https://avatars.githubusercontent.com/u/106369832',
+            link: { mobileWebUrl: 'https://zrzr-kakao.github.io', },
+          },
+          itemContent: {
+            titleImageUrl: 'https://avatars.githubusercontent.com/u/106369832',
+            titleImageText: '쩌렁쩌렁 알립니다!',
+            titleImageCategory: '쩌렁쩌렁™',
+            items: [],
+          },
+          buttons: [],
+        };
+        _.set(data, 'content.imageUrl', form['content.imageUrl'].value);
+        _.set(data, 'content.title', '(광고) ' + form['content.title'].value);
+        _.set(data, 'content.description', form['content.description'].value);
+        _.set(data, 'itemContent.items[0].item', form['itemContent.items[0].item'].value);
+        _.set(data, 'itemContent.items[1].item', form['itemContent.items[1].item'].value);
+        _.set(data, 'itemContent.items[2].item', form['itemContent.items[2].item'].value);
+        _.set(data, 'itemContent.items[3].item', form['itemContent.items[3].item'].value);
+        _.set(data, 'itemContent.items[4].item', form['itemContent.items[4].item'].value);
+        _.set(data, 'itemContent.items[0].itemOp', form['itemContent.items[0].itemOp'].value);
+        _.set(data, 'itemContent.items[1].itemOp', form['itemContent.items[1].itemOp'].value);
+        _.set(data, 'itemContent.items[2].itemOp', form['itemContent.items[2].itemOp'].value);
+        _.set(data, 'itemContent.items[3].itemOp', form['itemContent.items[3].itemOp'].value);
+        _.set(data, 'itemContent.items[4].itemOp', form['itemContent.items[4].itemOp'].value);
+        _.set(data, 'itemContent.sum', form['itemContent.sum'].value);
+        _.set(data, 'itemContent.sumOp', form['itemContent.sumOp'].value);
+        _.set(data, 'buttons[0].title', form['buttons[0].title'].value);
+        _.set(data, 'buttons[1].title', form['buttons[1].title'].value);
+        _.set(data, 'buttons[0].link.mobileWebUrl', form['buttons[0].link.mobileWebUrl'].value);
+        _.set(data, 'buttons[1].link.mobileWebUrl', form['buttons[1].link.mobileWebUrl'].value);
+        Kakao.Link.sendDefault(data);
+      };
+    </script>
+    <button onclick="send()">전송</button>
+    <div class="container">
+      <div class="my-5">
+        <h1 class="fs-2 fw-bold">쩌렁쩌렁™</h1>
+        <p class="fs-6">쩌렁쩌렁™은 해당 서비스를 이용한 메세지 내용 및 발생 가능한 분쟁에 대해 책임이 없음을 밝힙니다.</p>
+      </div>
+      <form class="my-3" onsubmit="send(event, this);">
+        <div class="mt-2">
+          <h2 class="fs-5 fw-bold">상단이미지</h2>
+          <div class="row">
+            <div class="col">
+              <label>
+                <input checked required type="radio" name="content.imageUrl" value="https://zrzr-kakao.github.io/001.png" />
+                <img src="https://zrzr-kakao.github.io/001.png" class="img-thumbnail mx-auto" alt="...">
+              </label>
+            </div>
+            <div class="col">
+              <label>
+                <input required type="radio" name="content.imageUrl" value="https://zrzr-kakao.github.io/002.png" />
+                <img src="https://zrzr-kakao.github.io/002.png" class="img-thumbnail mx-auto" alt="...">
+              </label>
+            </div>
+            <div class="col">
+              <label>
+                <input required type="radio" name="content.imageUrl" value="https://zrzr-kakao.github.io/003.png" />
+                <img src="https://zrzr-kakao.github.io/003.png" class="img-thumbnail mx-auto" alt="...">
+              </label>
+            </div>
+            <div class="col">
+              <label>
+                <input required type="radio" name="content.imageUrl" value="https://zrzr-kakao.github.io/004.png" />
+                <img src="https://zrzr-kakao.github.io/004.png" class="img-thumbnail mx-auto" alt="...">
+              </label>
+            </div>
+            <div class="col">
+              <label>
+                <input required type="radio" name="content.imageUrl" value="https://zrzr-kakao.github.io/005.png" />
+                <img src="https://zrzr-kakao.github.io/005.png" class="img-thumbnail mx-auto" alt="...">
+              </label>
+            </div>
+            <div class="col">
+              <label>
+                <input required type="radio" name="content.imageUrl" value="https://zrzr-kakao.github.io/006.png" />
+                <img src="https://zrzr-kakao.github.io/006.png" class="img-thumbnail mx-auto" alt="...">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <h2 class="fs-6 fw-bold">제목*</h2>
+          <div class="mt-2 p-2 rounded border">
+            <input required type="text" name="content.title" class="form-control" placeholder="제목을 입력하세요." />
+          </div>
+        </div>
+        <div class="mt-3">
+          <h2 class="fs-6 fw-bold">내용*</h2>
+          <div class="mt-2 p-2 rounded border">
+            <input required type="text" name="content.description" class="form-control" placeholder="내용을 입력하세요." />
+          </div>
+        </div>
+        <div class="mt-3">
+          <h2 class="fs-6 fw-bold">항목</h2>
+          <div class="mt-2 p-2 rounded border">
+            <h2 class="fs-6 fw-bold">표시 할 항목</h2>
+            <div class="d-flex gap-2 mt-2">
+              <input type="text" name="itemContent.items[0].item" class="form-control flex-grow-1" placeholder="이름" />
+              <input type="text" name="itemContent.items[0].itemOp" class="form-control flex-grow-1" placeholder="설명" />
+            </div>
+            <div class="d-flex gap-2 mt-2">
+              <input type="text" name="itemContent.items[1].item" class="form-control flex-grow-1" placeholder="이름" />
+              <input type="text" name="itemContent.items[1].itemOp" class="form-control flex-grow-1" placeholder="설명" />
+            </div>
+            <div class="d-flex gap-2 mt-2">
+              <input type="text" name="itemContent.items[2].item" class="form-control flex-grow-1" placeholder="이름" />
+              <input type="text" name="itemContent.items[2].itemOp" class="form-control flex-grow-1" placeholder="설명" />
+            </div>
+            <div class="d-flex gap-2 mt-2">
+              <input type="text" name="itemContent.items[3].item" class="form-control flex-grow-1" placeholder="이름" />
+              <input type="text" name="itemContent.items[3].itemOp" class="form-control flex-grow-1" placeholder="설명" />
+            </div>
+            <div class="d-flex gap-2 mt-2">
+              <input type="text" name="itemContent.items[4].item" class="form-control flex-grow-1" placeholder="이름" />
+              <input type="text" name="itemContent.items[4].itemOp" class="form-control flex-grow-1" placeholder="설명" />
+            </div>
+          </div>
+          <div class="mt-2 p-2 rounded border">
+            <h2 class="fs-6 fw-bold">강조 할 항목</h2>
+            <div class="d-flex gap-2 mt-2">
+              <input type="text" name="itemContent.sum" class="form-control flex-grow-1" placeholder="이름" />
+              <input type="text" name="itemContent.sumOp" class="form-control flex-grow-1" placeholder="설명" />
+            </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <h2 class="fs-6 fw-bold">버튼</h2>
+          <div class="mt-2 p-2 rounded border">
+            <div class="d-flex gap-2">
+              <input type="text" name="buttons[0].title" class="form-control flex-grow-1" placeholder="버튼1 설명" />
+              <input type="url" name="buttons[0].link.mobileWebUrl" class="form-control flex-grow-1" placeholder="버튼1 링크 주소" />
+            </div>
+            <div class="d-flex gap-2 mt-2">
+              <input type="text" name="buttons[1].title" class="form-control flex-grow-1" placeholder="버튼2 설명" />
+              <input type="url" name="buttons[1].link.mobileWebUrl" class="form-control flex-grow-1" placeholder="버튼2 링크 주소" />
+            </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">메세지 공유하기</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
