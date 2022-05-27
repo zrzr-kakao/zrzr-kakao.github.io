@@ -63,7 +63,6 @@
         _.set(data, 'buttons[0].link.mobileWebUrl', form['buttons[0].link.mobileWebUrl'].value);
         _.set(data, 'buttons[1].link.mobileWebUrl', form['buttons[1].link.mobileWebUrl'].value);
         Kakao.Link.sendDefault(data);
-        setTimeout(() => location.replace('https://datalab.tools'), 3000);
       };
     </script>
     <div class="container">
