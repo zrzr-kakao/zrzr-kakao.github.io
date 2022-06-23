@@ -18,6 +18,12 @@
     <title>쩌렁쩌렁™ - 카카오톡 메세지 강조 헬퍼</title>
     <meta name="description" content="쩌렁쩌렁™은 해당 서비스를 이용한 메세지 내용 및 발생 가능한 분쟁에 대해 책임이 없음을 밝힙니다.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" />
+    <script>
+      (function (){
+        const uri = new URL(location.href), url = uri.searchParams.get('url');
+        if(url) return location.replace(url);
+      })();
+    </script>
   </head>
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
@@ -29,6 +35,7 @@
     <script>
       window.send = (event, form) => {
         event.preventDefault();
+        const uri = new URL('https://zrzr-kakao.github.io'); uri.searchParams.set('url', form['buttons[0].link.mobileWebUrl'].value);
         const data = {
           objectType: 'feed',
           content: {
@@ -43,7 +50,7 @@
           },
           buttons: [],
         };
-        _.set(data, 'content.imageUrl', form['content.imageUrl'].value);
+        _.set(data, 'content.imageUrl', form['content.imageSrc'].value || form['content.imageUrl'].value);
         _.set(data, 'content.title', '(광고) ' + form['content.title'].value);
         _.set(data, 'content.description', form['content.description'].value);
         _.set(data, 'itemContent.items[0].item', form['itemContent.items[0].item'].value);
@@ -59,9 +66,10 @@
         _.set(data, 'itemContent.sum', form['itemContent.sum'].value);
         _.set(data, 'itemContent.sumOp', form['itemContent.sumOp'].value);
         _.set(data, 'buttons[0].title', form['buttons[0].title'].value);
-        _.set(data, 'buttons[1].title', form['buttons[1].title'].value);
-        _.set(data, 'buttons[0].link.mobileWebUrl', form['buttons[0].link.mobileWebUrl'].value);
-        _.set(data, 'buttons[1].link.mobileWebUrl', form['buttons[1].link.mobileWebUrl'].value);
+        // _.set(data, 'buttons[1].title', form['buttons[1].title'].value);
+        _.set(data, 'buttons[0].link.mobileWebUrl', uri.toString());
+        // _.set(data, 'buttons[1].link.mobileWebUrl', form['buttons[1].link.mobileWebUrl'].value);
+        _.set(data, 'content.link.mobileWebUrl', uri.toString());
         Kakao.Link.sendDefault(data);
       };
     </script>
@@ -113,6 +121,9 @@
                 <img src="https://zrzr-kakao.github.io/006.png" class="img-thumbnail mx-auto" alt="...">
               </label>
             </div>
+          </div>
+          <div>
+            <input required type="text" class="form-control" name="content.imageSrc" placeholder="대표 이미지 주소 (선택입력)" value=""></input>
           </div>
         </div>
         <div class="mt-3">
